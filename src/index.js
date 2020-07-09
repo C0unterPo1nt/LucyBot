@@ -11,7 +11,7 @@ class DiscoBot {
 
         this._client.login(settings.token);
     }
-
+    
     /**
      * Adds a plugin to the bot
      *
@@ -23,7 +23,7 @@ class DiscoBot {
             throw new Error(`Plugin ${name} already loaded`);
         }
 
-        this._plugins.set(name, new ctor(this._client));
+        this._plugins.set(name, new ctor(this._client, this));
         this.enablePlugin(name);
     }
 

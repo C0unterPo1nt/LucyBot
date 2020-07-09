@@ -2,11 +2,12 @@ class Ping {
     static get name() {
         return 'ping';
     }
-
-    constructor(bot) {
+    
+    constructor(bot, botOp) {
         this.bot = bot;
         this._handleMessage = this._handleMessage.bind(this);
     }
+    
 
     enable() {
         this.bot.on('message', this._handleMessage);

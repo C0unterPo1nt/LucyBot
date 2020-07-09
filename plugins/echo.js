@@ -3,7 +3,7 @@ class Echo {
         return 'echo';
     }
 
-    constructor(bot) {
+    constructor(bot, botOp) {
         this.bot = bot;
         this._handleMessage = this._handleMessage.bind(this);
     }

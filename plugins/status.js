@@ -1,9 +1,9 @@
-class Echo {
+class Status {
     static get name() {
         return 'status';
     }
 
-    constructor(bot) {
+    constructor(bot, botOp) {
         this.bot = bot;
 
         this._handleReady = this._handleReady.bind(this);
@@ -59,4 +59,4 @@ class Echo {
     }
 }
 
-module.exports = Echo;
+module.exports = Status;

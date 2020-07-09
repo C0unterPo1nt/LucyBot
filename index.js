@@ -6,4 +6,5 @@ const bot = new DiscordBot(config);
 
 Object.keys(plugins).forEach(plugin => {
     bot.addPlugin(plugins[plugin].name, plugins[plugin]);
+    console.log(plugins[plugin].name + " loaded...");
 });
