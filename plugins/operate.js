@@ -34,7 +34,7 @@ class Operate {
         }
         
         if (command === "!Lkill") {
-            bot.destroy();
+            this.botOp.destroy();
         }
     }
 }

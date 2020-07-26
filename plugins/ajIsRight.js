@@ -22,7 +22,8 @@ class AjIsRight {
             return;
         }
         else{
-            message.channel.send(response);
+            //console.log(response)
+            //message.channel.send(response);
         }
     }   
 }
