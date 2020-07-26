@@ -19,11 +19,7 @@ class AjIsRight {
 
     _handleMessage(message){
         if (message.author.tag != "C0unterPo1nt#1863" && !message.content.endsWith(".")){
-            return;
-        }
-        else{
-            console.log(this.response);
-            //message.channel.send(response);
+            message.channel.send(this.response);          
         }
     }   
 }
