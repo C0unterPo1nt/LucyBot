@@ -18,7 +18,7 @@ class AjIsRight {
     }
 
     _handleMessage(message){
-        if (message.author.tag == "C0unterPo1nt#1863" && message.content.endsWith(".")){
+        if (message.author.tag == "MisguidedMowgli#4236" && message.content.trim().endsWith(".")){
             message.channel.send(this.response);          
         }
     }   
