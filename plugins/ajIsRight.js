@@ -6,7 +6,7 @@ class AjIsRight {
     constructor(bot, botOp) {
         this.bot = bot;
         this._handleMessage = this._handleMessage.bind(this);
-        var response = "AJ IS RIGHT";
+        const response = "AJ IS RIGHT";
     }
     
     enable() {
@@ -22,7 +22,7 @@ class AjIsRight {
             return;
         }
         else{
-            //console.log(response)
+            console.log(response);
             //message.channel.send(response);
         }
     }   
