@@ -18,8 +18,8 @@ class Friend {
     }
     
     generateFriendMessage(message) {
-        let min = 0, max = this.friendString.length - 1;
-        message.channel.send(this.friendString[Math.floor(Math.random() * (max - min + 1) ) + min]);
+        let max = this.friendString.length;
+        message.channel.send(this.friendString[Math.floor(Math.random() * max)]);
     }
     
     _handleMessage(message){
