@@ -2,11 +2,11 @@ class AjIsRight {
     static get name() {
         return 'AjIsRight';
     }
-    
+
     constructor(bot, botOp) {
         this.bot = bot;
         this._handleMessage = this._handleMessage.bind(this);
-        this.response = "AJ IS RIGHT";
+        this.response = 'AJ IS RIGHT';
     }
     
     enable() {

@@ -5,10 +5,11 @@ const Discord = require('discord.js');
  * An extensible Discord bot
  */
 class DiscoBot {
-    constructor(settings) {
+    constructor(settings, pid) {
         this._client = new Discord.Client();
         this._plugins = new Map();
-
+        this.pid = pid;
+        
         this._client.login(settings.token);
     }
     
@@ -76,11 +77,12 @@ class DiscoBot {
     }
 
     /**
-     * The bot logs out and closes all connections to the Discord servers.
+     * The bot logs out and closes all connections to the Discord servers. Then sends kill command to Node.js.
      */
     destroy() {
         this._plugins.clear();
         this._client.destroy();
+        process.kill(this.pid, 'SIGINT');
     }
 }
 
