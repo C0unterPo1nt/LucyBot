@@ -10,7 +10,7 @@ class FourTwenty {
         this._setMessageTimeout = this._setMessageTimeout.bind(this);
         this.convertTime = this.convertTime.bind(this);
         this.buildTime = this.buildTime.bind(this);
-        this.shift420 = 15600000;
+        this.shift420 = 15610000;
         this.halfDay = 43200000;
         this.hour = 0;
         this.minute = 30;
@@ -61,9 +61,10 @@ class FourTwenty {
     }
             
     
-    //"110100100"
+
     _send420Message() {
         this.client.guilds.forEach(server => {server.systemChannel.send("110100100");});
+        this._setMessageTimeout();
     }
 }
 
