@@ -5,12 +5,12 @@ class FourTwenty {
 
     constructor(client, bot) {
         this.client = client;
-        this._send420Message = this._send420Message.bind(this);
-        this._find420 = this._find420.bind(this);
-        this._setMessageTimeout = this._setMessageTimeout.bind(this);
+        this._changeMood = this._changeMood.bind(this);
+        this._find12 = this._find12.bind(this);
+        this._setMoodTimeout = this._setMoodTimeout.bind(this);
         this.convertTime = this.convertTime.bind(this);
         this.buildTime = this.buildTime.bind(this);
-        this.shift420 = 15610000;
+        this.shift12 = 43200000;
         this.halfDay = 43200000;
         this.hour = 0;
         this.minute = 30;
@@ -47,25 +47,23 @@ class FourTwenty {
         Takes the current time in milliseconds since 1/1/70 00:00:00 UTC
         returns the number of miliseconds until next instance of 4:20
     */
-    _find420() {
+    _find12() {
         let twelveHourTime = this.buildTime();
         if (twelveHourTime < this.shift420) {
-            return this.shift420 - twelveHourTime;
+            return this.shift12 - twelveHourTime;
         } else {
-            return this.halfDay - twelveHourTime + this.shift420;
+            return this.halfDay - twelveHourTime + this.shift12;
         }
     }
 
-    _setMessageTimeout() {
-        let next420 = this._find420();
-        setTimeout(this._send420Message, next420);
+    _setMoodTimeout() {
+        let next12 = this._find12();
+        setTimeout(this._changeMood, next12);
     }
-            
-    
 
-    _send420Message() {
-        this.client.guilds.forEach(server => {server.systemChannel.send("110100100");});
-        setTimeout(this._setMessageTimeout, 60000);
+    _changeMood() {
+        //todo: change avatar to a random expression
+        setTimeout(this._setMoodTimeout, 60000);
     }
 }
 
