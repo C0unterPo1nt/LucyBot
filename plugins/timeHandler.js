@@ -3,8 +3,8 @@ class TimeHandler {
         return 'timeHandler';
     }
 
-    constructor(bot, botOp) {
-        this.bot = bot;
+    constructor(client, bot) {
+        this.client = client;
         this.findNext = this.findNext.bind(this);
         this.advance12Hours = this.advance12Hours.bind(this);
         this.advance24Hours = this.advance12Hours.bind(this);
