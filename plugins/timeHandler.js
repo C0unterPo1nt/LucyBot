@@ -23,7 +23,6 @@ class TimeHandler {
     */
     findNext(hour, minute, second = 0) {
         let currentTime = new Date();
-        currentTime.setHours(11);
         let targetTime = new Date();
         targetTime.setHours(hour);
         targetTime.setMinutes(minute);
@@ -63,11 +62,11 @@ class TimeHandler {
 
     /*
         @param time a Date object, func a function to be executed
-        Schedules a function to be executed at the provided date and time and returns the timeout
+        Schedules a function to be executed at the provided date and time and returns the timeout ID
     */
     scheduleEvent(time, func) {
         let timerDuration = this.milisecondsUntil(time);
-        console.log("Event Scheduled for " +time + "and"+ timerDuration + "mSeconds")
+        console.log("Event Scheduled for " + time + " and "+ timerDuration + " mSeconds ")
         return setTimeout(func, timerDuration);
     }
 }
