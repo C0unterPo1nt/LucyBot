@@ -13,13 +13,11 @@ class TimeHandler {
     }
 
     enable() {
-        
     }
 
     disable() {
-        
     }
-    
+
     /*
         takes the provided clock face values and generates a date object matching the next chronological instance of that time
     */
@@ -35,11 +33,11 @@ class TimeHandler {
         }
         return targetTime;
     }
-    
+
     /*
         takes a date object and advances the clock by 12 hours
     */
-    advance12Hours(time) { 
+    advance12Hours(time) {
         if (time.getHours >= 12){
             time = this.advance24Hours(time);
             time.setHours(time.getHours() - 12)
@@ -48,28 +46,29 @@ class TimeHandler {
         }
         return time;
     }
-    
+
     /*
         takes a date object and advances it by one day
     */
     advance24Hours(time) { return time.setDate(time.getDate() + 1); }
-    
+
     /* 
         Takes a date object
         returns the number of miliseconds until the provided time
     */
     milisecondsUntil(time) {
         let currentTime = Date.now();
-        return currentTime - time;
+        return time - currentTime;
     }
-    
+
     /*
         @param time a Date object, func a function to be executed
-        Schedules a function to be executed at the provided date and time
+        Schedules a function to be executed at the provided date and time and returns the timeout
     */
     scheduleEvent(time, func) {
-        setTimeout(func, this.milisecondsUntil(time));
-        return;
+        let timerDuration = this.milisecondsUntil(time);
+        console.log("Event Scheduled for " +time + "and"+ timerDuration + "mSeconds")
+        return setTimeout(func, timerDuration);
     }
 }
 

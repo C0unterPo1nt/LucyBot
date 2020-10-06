@@ -9,14 +9,10 @@ class DiscoBot {
         this._client = new Discord.Client();
         this._plugins = new Map();
         this.pid = pid;
-        
+
         this._client.login(settings.token);
     }
-    
-    get plugin(name) {
-        return this._plugins.get(name);
-    }
-    
+
     /**
      * Adds a plugin to the bot
      *

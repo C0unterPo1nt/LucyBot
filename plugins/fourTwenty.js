@@ -11,18 +11,19 @@ class FourTwenty {
         this._send420Message = this._send420Message.bind(this);
         this.scheduleMessage = this.scheduleMessage.bind(this);
         this.timeHandler = new TimeHandler();
-        this.time420 = this.timeHandler.findNext(4, 20);
-        this.scheduleMessage();
     }
 
     enable() {
+        this.time420 = this.timeHandler.findNext(4, 20);
+        this.timer = this.scheduleMessage();
     }
 
     disable() {
+        clearTimeout(this.timer);
     }
 
     scheduleMessage() {
-        this.timeHandler.scheduleEvent(this.time420, this._send420Message);
+        return this.timeHandler.scheduleEvent(this.time420, this._send420Message);
     }
 
     _send420Message() {
