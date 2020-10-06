@@ -13,7 +13,7 @@ class DiscoBot {
         this._client.login(settings.token);
     }
     
-    getPlugin(name) {
+    get plugin(name) {
         return this._plugins.get(name);
     }
     
