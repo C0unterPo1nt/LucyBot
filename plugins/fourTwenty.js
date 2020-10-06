@@ -14,7 +14,6 @@ class FourTwenty {
     }
 
     enable() {
-        this.time420 = this.timeHandler.findNext(4, 20);
         this.timer = this.scheduleMessage();
     }
 
@@ -23,12 +22,13 @@ class FourTwenty {
     }
 
     scheduleMessage() {
-        return this.timeHandler.scheduleEvent(this.time420, this._send420Message);
+        let time420 = this.timeHandler.findNext(4, 20);
+        return this.timeHandler.scheduleEvent(time420, this._send420Message);
     }
 
     _send420Message() {
         this.client.guilds.forEach(server => { server.systemChannel.send('110100100'); });
-        this.scheduleMessage();
+        this.timer = this.scheduleMessage();
     }
 }
 
