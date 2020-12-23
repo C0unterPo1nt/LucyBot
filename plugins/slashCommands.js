@@ -7,7 +7,7 @@ class SlashCommands {
         this.client = client;
         this.bot = bot;
         this.registerCommand = this.registerCommand.bind(this);
-        this.handleCommand = this.registerCommand.bind(this);
+        this.handleCommand = this.handleCommand.bind(this);
         this.responses = new Map();
     }
 
