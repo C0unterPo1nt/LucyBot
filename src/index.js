@@ -1,15 +1,15 @@
 /* eslint-disable new-cap */
 const Discord = require('discord.js');
-
+const interactions = require("discord-slash-commands-client");
 /**
  * An extensible Discord bot
  */
 class DiscoBot {
     constructor(settings, pid) {
         this._client = new Discord.Client();
+        this._client.interactions = new interactions.Client(settings.token, "730337388462866484");
         this._plugins = new Map();
         this.pid = pid;
-
         this._client.login(settings.token);
     }
 

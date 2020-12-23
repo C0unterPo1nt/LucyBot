@@ -3,37 +3,45 @@ class Echo {
         return 'echo';
     }
 
-    constructor(bot, botOp) {
+    constructor(client, bot) {
+        this.client = client;
         this.bot = bot;
-        this._handleMessage = this._handleMessage.bind(this);
+        this.handleCommand = this.handleCommand.bind(this);
+        this.command =
+        {
+            name: "echo",
+            description: "repeats the provided text back to you",
+            options: [{
+                name: "text",
+                description: "the text to be repeated",
+                type: 3,
+                required: true
+            }]
+        };
+        this.initialize = this.initialize.bind(this);
     }
 
     enable() {
-        this.bot.on('message', this._handleMessage);
+        this.client.on('ready', () => this.initialize());
     }
 
     disable() {
-        this.bot.removeListener('message', this._handleMessage);
+        this.client.removeListener('ready', () => this.initialize());
     }
 
-    _handleMessage(message) {
-        if (message.author.bot) {
+    initialize() {
+        this.slashCommands = this.bot._plugins.get('slashCommands');
+        this.slashCommands.registerCommand(this.command, this.handleCommand);
+    }
+
+    handleCommand(interaction) {
+        if (interaction.member.user.client) {
             return;
         }
 
-        const words = message.content.match(/^!(\w+)(.*)/);
+        const words = interaction.options[0].value;
 
-        if (!words) {
-            return;
-        }
-
-        const [, command, content] = words;
-
-        if (command !== 'echo') {
-            return;
-        }
-
-        message.channel.send(content.trim());
+        interaction.channel.send(words.trim());
     }
 }
 

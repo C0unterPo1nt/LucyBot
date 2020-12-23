@@ -10,7 +10,8 @@
     "start-dev": "nodemon --inspect index.js"
   },
   "dependencies": {
-    "discord.js": "^11.2.1"
+    "discord-slash-commands-client": "^1.0.3",
+    "discord.js": "git+https://github.com/MatteZ02/discord.js.git"
   },
   "devDependencies": {
     "eslint": "^4.6.1",
